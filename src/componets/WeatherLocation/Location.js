@@ -11,7 +11,7 @@ const Location = ({city}) => (
     );
 
 Location.propTypes = {
-    cyti: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
 };
 
 export default Location;
