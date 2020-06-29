@@ -1,10 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ForecastItem from './ForecastItem';
+import './styles.css';
+ 
+const days = [
+    'Lunes',
+    'Martes',
+    'Miercoles',
+    'Jueves',
+    'Viernes',
+]
+
+
+const data = {
+    temperature: 20,
+    weatherState: 'normal',
+    humidity: 20,
+    wind: '20 m/s',
+}
 
 class ForecastExtended extends Component{
+    renderForecastItemDays(){
+        return days.map(day => <ForecastItem weekDay={day} hour={10} data={data}></ForecastItem>);
+
+    }
+
     render(){
         const { city } = this.props;
-        return(<div>Pronóstico Extendido para {city} </div>)
+        return( <div>
+                    <h2 className='forecast-title'>Pronóstico Extendido para {city} </h2>
+                    {this.renderForecastItemDays()}
+                </div>
+        )
     }
 }
 
